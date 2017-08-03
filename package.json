@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
+    "aws-iot-device-sdk": "^2.0.1",
     "serialport": "^5.0.0"
   },
   "devDependencies": {},
