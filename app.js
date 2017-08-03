@@ -1,19 +1,28 @@
-var serialport=require("serialport");
-var SerialPort =serialport.SerialPort;
-var portName = process.argv[2];
-
-var myPort = new SerialPort(portName,{
-  baudRate:9600,
-  parser:serialport.parsers.readline("\r\n")
-})
+var SerialPort = require('serialport');
+var myPort = new SerialPort('COM4', {
+  baudRate: 9600
+});
 
 myPort.on('open',onOpen);
 myPort.on('data',onData);
+
+
+myPort.on('data', function(data){
+//console.log('data: ','data: ', myPort.read());
+})
+
 
 function onOpen(){
   console.log("Open Connection");
 }
 
-function onData(data){
-  console.log(data);
+
+ function onData(data){
+	 
+console.log('data',+data);
+ 
+
+//console.log('dataObj');
+// console.log(JSON.stringify(data));
 }
+
