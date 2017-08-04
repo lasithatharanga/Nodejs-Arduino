@@ -1,5 +1,6 @@
 var awsIot =require('aws-iot-device-sdk');
 var SerialPort = require('serialport');
+
 var device = awsIot.device({
   keyPath:'2094307869-private.pem.key',
   certPath:'2094307869-certificate.pem.crt',
@@ -19,7 +20,7 @@ myPort.on('data',onData);
 
 
 var pHState = {"state":{"desired":{
-"pH": data,
+"pH": 'data',
 "timestamp": Date.now()
 
 }}};
@@ -46,6 +47,7 @@ myPort.on('readable', function(){
 
 function onOpen(){
 	console.log("Open Connection");
+	
  }
 
 

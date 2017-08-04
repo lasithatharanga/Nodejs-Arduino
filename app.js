@@ -4,7 +4,7 @@ var myPort = new SerialPort('COM4', {
 });
 
 myPort.on('open',onOpen);
-myPort.on('data',onData);
+//myPort.on('data',onData);
 
 
 myPort.on('data' , function(data){
@@ -21,10 +21,13 @@ function onOpen(){
 	console.log("Open Connection");
  }
 
+myPort.on('error', function(err) {
+  console.log('Error: ', err.message);
+});
 
-function onData(data){
+//function onData(data){
 	//console.log('data: '+data);
 	//console.log('dataObj');
 	// console.log(JSON.stringify(data));
-}
+//}
 
